@@ -1,0 +1,26 @@
+{
+  "name": "wpp-calendar",
+  "version": "1.0.0",
+  "description": "A whatsapp bot that consults the free time of the google calendar",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luismgluis/wpp-calendar.git"
+  },
+  "author": "Luis Miguel Grajales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luismgluis/wpp-calendar/issues"
+  },
+  "homepage": "https://github.com/luismgluis/wpp-calendar#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "express": "^4.18.2",
+    "googleapis": "^105.0.0",
+    "qrcode": "^1.5.1",
+    "whatsapp-web.js": "^1.19.3"
+  }
+}
