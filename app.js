@@ -13,15 +13,17 @@ app.get('/', (req, res) => {
       res.send(svg);
     },
     onAuthenticated: () => {
-      res.send("auth true");
+      res.send("auth is true");
       calendarClient.auth()
     },
     onMessage: async (msj) => {
-      const isGroup = typeof msj.author !== "undefined"
+      const chat = await msj.getChat()
+      const isGroup = chat.isGroup //typeof msj.author !== "undefined"
       if (!msj.fromMe && !isGroup) {
         const eventsData = await calendarClient.getListEvents()
         if (eventsData?.oneEventIsActive) {
           msj.reply("🤖 Estoy en una reunion ahora mismo, escribeme luego, muchas gracias. (bot)")
+          await chat.markUnread()
         }
       }
     }
