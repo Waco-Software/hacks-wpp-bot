@@ -62,7 +62,11 @@ const wppClient = (options = {}) => {
     onMessage(msg);
   });
   client.on("authenticated", () => {
+    console.log("wpp auth")
     onAuthenticated()
+  })
+  client.on("auth_failure", (msj) => {
+    console.log(msj)
   })
   client.initialize();
   return {
