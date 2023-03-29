@@ -1,13 +1,14 @@
-# wpp-calendar
-A whatsapp bot that consults the free time of the google calendar
+# Necesitas apoyo?
+Tranquilo en waco somos una gran comunidad que nos ayudamos entre todos, evoluciona a ser un nomada digital, ingresa a https://discord.gg/u8DemhpBdD y se parte de nuestra comunidad totalmente gratis.
 
+# How Start wpp-calendar
+A whatsapp bot that consults the free time of the google calendar
 
 # add express 
 https://expressjs.com/en/starter/installing.html
-
+npm i express
 # add wpp web
 https://github.com/pedroslopez/whatsapp-web.js
-
 npm i whatsapp-web.js
 
 # add qrcode
