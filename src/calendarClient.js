@@ -13,7 +13,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 // time.
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
-// 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
+
 const getCalendarClient = () => {
 
   /**

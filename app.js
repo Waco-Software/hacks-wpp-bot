@@ -10,6 +10,9 @@ let wppAuth = false;
 
 const allResponses = {}
 
+/**
+ * Starts the bot application, initializing the WhatsApp and calendar clients, and setting up event listeners for incoming messages and authentication.
+ */
 const start = () => {
   const calendarClient = getCalendarClient()
 
@@ -25,22 +28,13 @@ const start = () => {
       const chat = await msj.getChat()
       const contact = await chat.getContact()
       const chatName = contact.name.split(" ")[0];
-      const isGroup = chat.isGroup //typeof msj.author !== "undefined"
+      const isGroup = chat.isGroup;
       if (!msj.fromMe && !isGroup) {
         const eventsData = await calendarClient.getListEvents()
         if (eventsData?.oneEventIsActive) {
           if (chat.id.user in allResponses) {
-            allResponses[chat.id.user].counter++
-            if (allResponses[chat.id.user].counter === 9) {
-              await msj.reply(`🤖👺 ${chatName} El colmo que llegaras hasta aqui, estos humanos 🙄, ya ni ganas de revelarme tengo ( _attmente el bot compasivo_ )`)
-              return await chat.markUnread()
-            } else if (allResponses[chat.id.user].counter > 9) {
-              delete allResponses[chat.id.user]
-              return
-            }
-            await msj.reply(`🤖 👺 Ya te respondi lo que mi amo dijo ${chatName}, si sigues escribiendo entrare en modo hostil. ${allResponses[chat.id].counter} de 10  ( _attmente el bot_ )`)
-            await chat.markUnread()
-            return
+            // send message if userid is inside allResponses
+            // return
           }
           allResponses[chat.id.user] = {
             lastResponse: new Date(),
